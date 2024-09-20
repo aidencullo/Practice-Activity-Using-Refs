@@ -18,7 +18,12 @@ export default function VideoPlayer() {
   return (
     <>
       <button onClick={handleClick}>{isPlaying ? "Pause" : "Play"}</button>
-      <video width="75%" ref={videoRef}>
+      <video
+    width="75%"
+    ref={videoRef}
+    onPlay={() => setIsPlaying(true)}
+    onPause={() => setIsPlaying(false)}
+      >
         <source src="/stock.mov" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
