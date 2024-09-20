@@ -5,11 +5,14 @@ export default function VideoPlayer() {
   const videoRef = useRef(null);
 
   function handleClick() {
-    const nextIsPlaying = !isPlaying;
-    setIsPlaying(nextIsPlaying);
     if (videoRef.current) {
-      nextIsPlaying ? videoRef.current.play() : videoRef.current.pause();
+      if (isPlaying) {
+	videoRef.current.pause();
+      } else {
+	videoRef.current.play();
+      }
     }
+    setIsPlaying(isPlaying => !isPlaying);
   }
 
   return (
